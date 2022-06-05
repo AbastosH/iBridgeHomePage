@@ -1,0 +1,536 @@
+/*=== GERAL ======================================================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%; /* 1 rem = 10px */
+
+  --black-: hsl(0, 0%, 0%);
+  --light-gray-: hsl(217, 10%, 49%);
+  --form-border: hsla(0, 0%, 85%, 1);
+  --light-green: hsla(101, 69%, 55%, 1);
+  --gray-backgroud: hsla(0, 0%, 95%, 1);
+  --main-color: rgb(178, 224, 52);
+  --nav-height: 7.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 1.6rem;
+
+  overflow: auto;
+}
+
+.wrapper {
+  width: min(144rem, 100%);
+  display: grid;
+  padding-inline: 10.8rem;
+  margin-inline: auto;
+}
+
+.col-a {
+  grid-area: A;
+}
+
+.col-b {
+  grid-area: B;
+}
+
+header h2 {
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+/*=== NAVIGATION ======================================================*/
+nav {
+  display: flex;
+
+  height: var(--nav-height);
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+
+  z-index: 100;
+}
+
+nav.scroll {
+  background-color: var(--main-color);
+  border-bottom: solid 1px gray;
+}
+
+nav .wrapper {
+  display: flex;
+  padding-inline: 10.8rem;
+}
+nav#navigation .logo {
+  display: flex;
+  align-items: center;
+}
+
+nav#navigation div.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+}
+nav#navigation .menu ul {
+  display: flex;
+  gap: 7.2rem;
+  list-style: none;
+  padding-left: 25rem;
+}
+
+nav#navigation .menu ul li {
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+nav#navigation .menu ul li a {
+  text-decoration: none;
+  color: black;
+  opacity: 0.8;
+}
+
+nav#navigation .menu li a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background-color: var(--main-color);
+
+  position: relative;
+  bottom: -2rem;
+  left: -0.5rem;
+
+  display: block;
+
+  transition: width 0.2ms;
+}
+
+nav#navigation.scroll .menu li a::after {
+  background-color: white;
+}
+
+nav#navigation .menu li a.active::after,
+nav#navigation .menu li a:hover::after {
+  padding-inline: 0.8rem;
+  width: 100%;
+}
+nav#navigation .menu li a.active,
+nav#navigation .menu li a:hover {
+  opacity: 1;
+}
+
+/*=== HOME ======================================================*/
+section #home {
+  width: 100vw;
+  height: 63.8rem;
+}
+#home {
+  padding-block: 0;
+  padding-top: var(--nav-height);
+  background-image: url('./assets/fundo-verde.png');
+  background-repeat: no-repeat;
+  background-size: 100vw 50rem;
+}
+
+#home .wrapper {
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'A B';
+}
+
+#home .col-a {
+  align-content: center;
+  padding-left: 0%;
+}
+
+#home .col-a h1 {
+  font-style: normal;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--black-);
+
+  line-height: 3.7rem;
+  align-content: left;
+  vertical-align: center;
+  padding-top: 16rem;
+}
+
+#home .col-a h4 {
+  margin-top: 2.2rem;
+  color: var(--light-gray-);
+
+  font-size: 2rem;
+  font-weight: 600;
+  align-items: center;
+  line-height: 2.4rem;
+}
+
+#home .col-b {
+  justify-content: center;
+  justify-items: center;
+  padding: 4.3rem 0;
+}
+
+#home div.formBox {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 38.4rem;
+  height: 55.2rem;
+
+  background-color: rgb(255, 255, 255);
+  border: 1px;
+  border-color: var(--light-gray-);
+  border-radius: 0.5rem;
+  padding: 4.3rem;
+
+  filter: drop-shadow(4px 4px 20px rgba(0, 0, 0, 0.15));
+}
+
+#home .form-item {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  align-items: left;
+  align-content: space-around;
+  gap: 2.1rem;
+  padding-top: 2.8rem;
+}
+
+#home .form-item form {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  gap: 2.1rem;
+  line-height: 1.4rem;
+}
+
+#home .formBox form label span input.placeholder {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  padding: 1rem 1rem 1rem 1.5rem;
+}
+
+#home .formBox .form-item span {
+  display: flex;
+  flex-direction: row;
+  width: 31.4rem;
+  height: 3.5rem;
+  border: 1px solid;
+  border-color: var(--form-border);
+  border-radius: 0.5rem;
+}
+
+#home .formBox .form-item span input {
+  font-weight: 400;
+  color: var(--light-gray-);
+}
+
+#home .formBox button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  gap: 1rem;
+
+  color: white;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2rem;
+
+  position: absolute;
+  width: 31.4rem;
+  height: 4.4rem;
+
+  background-color: var(--light-green);
+  border-radius: 5rem;
+  border: 0rem;
+}
+
+#home .formBox button:hover {
+  filter: brightness(0.9);
+  border: none;
+}
+
+/*=== SERVICES ======================================================*/
+section#services {
+  width: 100vw;
+}
+
+#services header {
+  margin-top: 6.7rem;
+}
+
+#services header h1 {
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+#services header h4 {
+  color: var(--light-gray-);
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+#services .cards {
+  justify-content: center;
+  margin-top: 5.3rem;
+  margin-bottom: 8.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  row-gap: 2.2rem;
+}
+
+#services .card {
+  width: 24%;
+  flex-grow: 1;
+  padding: 3rem;
+  text-align: left;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+#services .card h3 {
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  margin: 3rem auto;
+}
+#services .card p {
+  color: var(--light-gray-);
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  align-items: center;
+}
+#services .card ul li {
+  color: var(--light-gray-);
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  align-items: center;
+}
+/*=== INTEGRATION ======================================================*/
+section#integrations .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section#integrations header h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-top: 5.7rem;
+  margin-bottom: 2.2rem;
+  line-height: 3.7rem;
+  justify-content: center;
+}
+section#integrations .logos {
+  display: flex;
+  padding: auto;
+  gap: 3rem;
+  padding-bottom: 1rem;
+}
+
+/*=== SYSTEM ======================================================*/
+section#system .wrapper {
+  grid-template-columns: 50rem 1fr;
+  grid-template-areas: 'A B';
+}
+
+section#system {
+  width: 100vw;
+  height: 63.8rem;
+  background-color: var(--gray-backgroud);
+}
+
+section#system .col-a header {
+  justify-items: left;
+  align-content: center;
+  padding-top: 14rem;
+}
+section#system header h2 {
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+section#system header ul {
+  display: flex;
+  margin-top: 5rem;
+  flex-direction: column;
+  list-style: none;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 2.7rem;
+  gap: 3.2rem;
+}
+
+section#system .content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-content: space-around;
+  padding-top: 10rem;
+}
+
+section#system .content img {
+  width: 50%;
+}
+/*=== CLIENTS ======================================================*/
+section#clients {
+  height: 31.9rem;
+}
+
+section#clients header h2 {
+  display: flex;
+  justify-content: center;
+  padding-top: 9rem;
+  padding-bottom: 2.5rem;
+}
+
+section#clients .content {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 9rem;
+}
+
+section#clients img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+/*=== STATMENTS ======================================================*/
+
+section#statments {
+  background-color: var(--gray-backgroud);
+  height: 63rem;
+  width: 100vw;
+  padding-bottom: 5rem;
+}
+
+section#statments header {
+  padding-top: 6.5rem;
+}
+
+section#statments h4 {
+  padding-top: 1.7rem;
+  padding-bottom: 5.8rem;
+  color: var(--light-gray-);
+  width: 70rem;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+section#statments .clientStatment {
+  display: flex;
+  gap: 3.5rem;
+  justify-content: center;
+}
+
+section#statments .clientStatment .clientCard svg {
+  transform: scale(3);
+  position: relative;
+  top: -5rem;
+  left: 1rem;
+  z-index: 1;
+}
+
+section#statments .clientStatment .clientCard {
+  display: flex;
+  width: 58.825rem;
+  height: 39rem;
+  background-color: white;
+
+  border-radius: 1rem;
+  border: 1px solid var(--gray-backgroud);
+  padding: 2rem;
+}
+
+section#statments .clientStatment .clientCard p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  width: 31rem;
+  flex-wrap: wrap;
+  color: var(--light-gray-);
+  position: relative;
+}
+
+section#statments .clientStatment .clientCard:nth-child(2) .content {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+section#statments .clientStatment .clientCard p#nomeCard {
+  line-height: 2.2rem;
+  font-size: 1.6rem;
+  margin-top: 8rem;
+}
+
+section#statments .clientStatment .clientCard p str {
+  font-weight: 700;
+  color: black;
+}
+
+/*=== FOOTER ======================================================*/
+
+footer {
+  padding-block: 1.5rem;
+  background-color: black;
+  justify-self: center;
+  align-self: center;
+  width: 100vw;
+}
+
+footer img {
+  align-self: center;
+  justify-self: center;
+}
+
+/*=== BACK TO TOP BUTTON  ======================================================*/
+
+#backToTopButton {
+  position: fixed;
+  bottom: 1rem;
+  right: 2.5rem;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(100%);
+  transition: 200ms;
+}
+
+#backToTopButton circle {
+  fill: var(--light-green);
+}
+
+#backToTopButton.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
